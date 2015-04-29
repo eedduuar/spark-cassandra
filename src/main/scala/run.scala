@@ -16,6 +16,7 @@ object Run {
                 .set("spark.cassandra.connection.host", "10.0.0.161")
                 .set("spark.driver.host","10.0.0.131")
                 .setJars(jars)
+		.set("spark.cores.max","2")
         val sc = new SparkContext("spark://10.0.0.131:7077", "scala", conf)
 
         //val rdd = sc.cassandraTable("usmc", "user_count_match2").
@@ -23,9 +24,9 @@ object Run {
         val cc = new CassandraSQLContext(sc)
 
 
-        val rdd = cc.sql("SELECT max(user_number) from usmc.numerics_id ")
+        val rdd = cc.sql("SELECT count(*) from usmc.usersimpletaxonomies3 group by usmcuserid having count(*) > 1  ")
 
-        var fs = printf("max:%s",rdd.first)
+        var fs = printf("cont:%s",rdd.first)
         println(fs)
         //println(rdd.map(_.getInt("value")).sum)
 
