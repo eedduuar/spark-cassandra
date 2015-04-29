@@ -25,11 +25,10 @@ object Run {
 
         val cc = new CassandraSQLContext(sc)
 
+        val query = args[1]
+        val rdd = cc.sql(query)
 
-        val rdd = cc.sql("SELECT count(*) from usmc.usersimpletaxonomies3 group by usmcuserid having count(*) > 1  ")
-
-        var fs = printf("cont:%s",rdd.first)
-        println(fs)
+        rdd.foreach(r => println(r))
         //println(rdd.map(_.getInt("value")).sum)
 
 }
