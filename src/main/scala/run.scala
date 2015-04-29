@@ -9,12 +9,11 @@ object Run {
   def main(args: Array[String]) =
         
         println("Running")
-        val conf = ConfigFactory.load()
-        val project_jar = conf.getString("app.project_jar")
-        val cassandra = conf.getString("app.cassandra")
-        val spark = conf.getString("app.spark")
+        val appConf = ConfigFactory.load()
+        val cassandra = appConf.getString("app.cassandra")
+        val spark = appConf.getString("app.spark")
         var jars = new Array[String](1)
-        jars(0)= project_jar
+        jars(0)= appConf.getString("app.project_jar")
         val conf = new SparkConf(true)
                 .set("spark.cassandra.connection.host", cassandra)
                 .set("spark.driver.host",spark)
