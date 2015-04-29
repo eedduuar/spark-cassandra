@@ -25,7 +25,8 @@ object Run {
 
         val cc = new CassandraSQLContext(sc)
 
-        val query = args(1)
+        val query = args(0)
+        println "query:"+query
         val rdd = cc.sql(query)
 
         rdd.foreach(r => println(r))
