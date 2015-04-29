@@ -7,13 +7,12 @@ import com.typesafe.config._
 
 object Run {
   def main(args: Array[String]) =
+        
+        println("Running")
         val conf = ConfigFactory.load()
         val project_jar = conf.getString("app.project_jar")
         val cassandra = conf.getString("app.cassandra")
         val spark = conf.getString("app.spark")
-
-
-        println("Running")
         var jars = new Array[String](1)
         jars(0)= project_jar
         val conf = new SparkConf(true)
