@@ -27,7 +27,7 @@ object Run {
 
         //val query = args()
        //println("query:"+query)
-        val rdd = cc.sql(query)
+        //val rdd = cc.sql(query)
 
         rdd.foreach(r => println(r.taxonomies))
         //println(rdd.map(_.getInt("value")).sum)
