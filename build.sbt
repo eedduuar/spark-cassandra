@@ -8,8 +8,10 @@ libraryDependencies ++= Seq(
   "org.apache.spark"  %% "spark-core"              % "1.1.0"  ,
   "org.apache.spark"  %% "spark-sql"               % "1.1.0"  ,
   "com.datastax.cassandra" % "cassandra-driver-core" % "2.1.0" ,
-  "com.datastax.spark" %% "spark-cassandra-connector" % "1.1.0" 
+  "com.datastax.spark" %% "spark-cassandra-connector" % "1.1.0",
+  "com.typesafe" % "config" % "1.2.1"
 )
+
 
 mergeStrategy in assembly <<= (mergeStrategy in assembly) { (old) =>
   {
