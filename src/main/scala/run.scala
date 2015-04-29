@@ -11,7 +11,7 @@ object Run {
         val conf = ConfigFactory.load()
 
         val project_jar = conf.getString("app.project_jar")
-        val cassandra = conf.getString("app.cassandra"))
+        val cassandra = conf.getString("app.cassandra")
         val spark = conf.getString("app.spark"))
 
 
