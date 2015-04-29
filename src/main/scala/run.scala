@@ -21,13 +21,13 @@ object Run {
 		.set("spark.cores.max","2")
         val sc = new SparkContext("spark://"+spark+":7077", "scala", conf)
 
-        val rdd = sc.cassandraTable("usmc", "usersimpletaxonomies3").take(10)
+        //val rdd = sc.cassandraTable("usmc", "usersimpletaxonomies3").take(10)
 
         val cc = new CassandraSQLContext(sc)
 
-        //val query = args()
-       //println("query:"+query)
-        //val rdd = cc.sql(query)
+        val query = args(0)
+       println("query:"+query)
+       val rdd = cc.sql(query)
 
         rdd.foreach(r => println(r))
         //println(rdd.map(_.getInt("value")).sum)
