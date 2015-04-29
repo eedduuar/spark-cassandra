@@ -6,7 +6,7 @@ import com.typesafe.config._
 
 
 object Run {
-  def main(args: Array[String]) =
+  def main(args: Array[String]) {
         
         println("Running")
         val appConf = ConfigFactory.load()
@@ -30,5 +30,5 @@ object Run {
 
         rdd.foreach(r => println(r))
         //println(rdd.map(_.getInt("value")).sum)
-
+    }
 }
